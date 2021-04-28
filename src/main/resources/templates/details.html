@@ -2,18 +2,29 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Details</title>
 </head>
 <body>
-<h1>
-    Data Stored are:
-</h1>
-<table>
-    <tr> <th>Id</th> <th>Name</th> <th>Email</th><th>Age</th><th>Phone_Number</th> </tr>
-    <tr th:each="users : ${users}"> <td th:text="${users.id}">Id</td> <td th:text="${users.name}">Name</td>
-        <td th:text="${users.email}">Email</td>
-        <td th:text="${users.Age}">Age</td>
-        <td th:text="${users.Email}">Phone_Number</td></tr>
-</table>
+    <h1>
+        Data Stored are:
+    </h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Phone_Number</th>
+            <th>Address</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.number}"></td>
+            <td th:text="${user.address}"></td>
+        </tr>
+    </table>
 </body>
 </html>

@@ -4,12 +4,11 @@ import backend.eteupgrad.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Repository
 public class UserRepository {
 
-	@PersistenceUnit(unitName = "Backendtest")
+	@PersistenceUnit(unitName = "Backend")
 	private EntityManagerFactory entityManagerFactory;
 
 	public boolean register(User newUser) {
@@ -24,22 +23,14 @@ public class UserRepository {
 			return false;
 		}
 	}
-	public User checkCredentials(String username) {
+	public User isPresent(User name) {
 		try {
 			EntityManager entityManager = entityManagerFactory.createEntityManager();
-			TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class);
-			query.setParameter("username", username);
+			TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.name = :name", User.class);
+			query.setParameter("name", name);
 			return query.getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		}
-	}
-	public List<User> getAllUsers(Integer userID){
-		EntityManager em= entityManagerFactory.createEntityManager();
-		TypedQuery<User> query= em.createQuery("SELECT * from User u join fetch u.user u where u.id= :userid", User.class);
-		query.setParameter("userid",userID);
-		List<User> result=query.getResultList();
-
-		return result;
 	}
 }
