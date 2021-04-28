@@ -14,10 +14,10 @@
     <h1>Register</h1>
 </div>
 <br>
-<form th:object="${user}" th:action="@{/users/register}" method="POST">
+<form th:object="${users}" th:action="@{/users/register}" method="POST">
     <div id='formItems'>
         <label>Name</label>
-        <input type="text" name="nme" id="name">
+        <input type="text" name="name" id="name">
 
         <label>Age</label>
         <input type="number" name="age" id="age">

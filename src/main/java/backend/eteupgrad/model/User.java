@@ -10,9 +10,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	private String name;
-
 	private Integer age;
 	private String email;
 	private String address;
